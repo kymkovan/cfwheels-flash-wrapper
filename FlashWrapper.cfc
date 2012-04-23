@@ -1,13 +1,9 @@
-﻿component output="false" {
+﻿<cfcomponent output="false">
 	
-	include "controller/flash.cfm";
-	
-	/**
-	 * @hint Initializes plugin
-	 */
-	public any function init() {
-		this.version = "1.1.7";
-		return this;
-	}
-	
-}
+	<cfinclude template="controller/flash.cfm" />
+
+	<cffunction name="init" access="public" >
+		<cfset this.version = "1.1.7" />
+		<cfreturn this>
+	</cffunction>>
+</cfcomponent>

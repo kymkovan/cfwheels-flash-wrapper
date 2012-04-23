@@ -2,14 +2,14 @@
 
 <cfscript>
 	flashWrapperMeta = {};
-	flashWrapperMeta.version = "0.1";
+	flashWrapperMeta.version = "0.1.1";
 	flashInsert(alert="flash(""alert"")");
 	flashInsert(error="flash(""error"")");
 	flashInsert(info="flash(""info"")");
 	flashInsert(success="flash(""success"")");
-	include "stylesheets/bootstrap.min.cfm";
 </cfscript>
-
+<cfinclude template="stylesheets/bootstrap.min.cfm">
+	
 <style>
 	p {
 		font-family: "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;

@@ -1,4 +1,5 @@
-﻿<cffunction name="flash" mixin="controller" returntype="any" access="public" output="false" hint="Returns the value of a specific key in the Flash (or the entire Flash as a struct if no key is passed in)."
+﻿<cffunction name="flash" mixin="controller" returntype="any" access="public" output="false" 
+	hint="Returns the value of a specific key in the Flash (or the entire Flash as a struct if no key is passed in)."
 	examples=
 	'
 		<!--- Display "message" item in flash --->
@@ -20,14 +21,15 @@
 			</cfloop>
 		</cfoutput>
 	'
-	categories="controller-request,flash" chapters="using-the-flash" functions="flashClear,flashCount,flashDelete,flashInsert,flashIsEmpty,flashKeep,flashKeyExists,flashMessages">
+	categories="controller-request,flash" chapters="using-the-flash" functions="flashClear,flashCount,flashDelete,flashInsert,flashIsEmpty,flashKeep,flashKeyExists,flashMessages"
+	>
 	<cfargument name="key" type="string" required="false" hint="The key to get the value for.">
 	<cfargument name="prepend" required="false" hint="String to prepend to the flash. Useful to wrap the flash with HTML tags.">
 	<cfargument name="append" required="false" hint="String to append to the flash. Useful to wrap the flash with HTML tags.">
 	<cfscript>
+		var $flash = $readFlash();
 		$args(name="flash", args=arguments);
 		
-		var $flash = $readFlash();
 		if (StructKeyExists(arguments, "key"))
 		{
 			if (StructKeyExists(arguments, "prepend"))
@@ -80,7 +82,8 @@
 	</cfscript>
 </cffunction>
 
-<cffunction name="flashMessages" mixin="controller" returntype="string" access="public" output="false" hint="Displays a marked-up listing of messages that exists in the Flash."
+<cffunction name="flashMessages" mixin="controller" returntype="string" access="public" output="false" 
+	hint="Displays a marked-up listing of messages that exists in the Flash."
 	examples=
 	'
 		<!--- In the controller action --->
@@ -136,7 +139,8 @@
 			</div>
 		--->
 	'
-	categories="controller-request,flash" chapters="using-the-flash" functions="flash,flashClear,flashCount,flashDelete,flashInsert,flashIsEmpty,flashKeep,flashKeyExists">
+	categories="controller-request,flash" chapters="using-the-flash" functions="flash,flashClear,flashCount,flashDelete,flashInsert,flashIsEmpty,flashKeep,flashKeyExists"
+	>
 	<cfargument name="keys" type="string" required="false" hint="The key (or list of keys) to show the value for. You can also use the `key` argument instead for better readability when accessing a single key.">
 	<cfargument name="class" type="string" required="false" hint="HTML `class` to set on the `div` element that contains the messages.">
 	<cfargument name="includeEmptyContainer" type="boolean" required="false" hint="Includes the DIV container even if the flash is empty.">
